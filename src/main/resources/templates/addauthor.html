@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link th:replace="~{includes/bootstrap-css :: bootstrap-css}">
+    <title>Library: Add An Author</title>
+</head>
+<body>
+<div th:replace="~{includes/bootstrap-script :: bootstrap-script}"></div>
+<div class="container">
+    <div th:replace="~{includes/header.html :: header}"></div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form method="POST" th:object="${author}">
+                <div class="mb-3">
+                    <label for="firstNameInput" class="form-label">First Name</label>
+                    <input th:field="*{author}" th:value="${author.firstName}" type="text" class="form-control"
+                           id="firstNameInput" aria-describedby="firstNameHelp">
+                    <div id="firstNameHelp" class="form-text">Enter First Name of the Author</div>
+                </div>
+                <div class="mb-3">
+                    <label for="lastNameInput" class="form-label">Last Name</label>
+                    <input th:field="*{author}" th:value="${author.lastName}" type="text" class="form-control"
+                           id="lastNameInput">
+                    <div id="lastNameHelp" class="form-text">Enter Last Name of the Author</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+
+</body>
+</html>

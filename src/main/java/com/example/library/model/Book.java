@@ -26,6 +26,12 @@ public class Book {
     @Column(name = "name", length = 64)
     private String name;
 
+    @Column(name = "year", nullable = true)
+    private int year;
+
+    @Column(name = "pages", nullable = true)
+    private int pages;
+
     @ManyToOne
     @JoinColumn(name = "theme_id")
     @ToString.Exclude
