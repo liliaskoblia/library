@@ -10,6 +10,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -27,9 +29,13 @@ public class SCard {
 
     @ManyToOne
     @JoinColumn(name = "librarian_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Librarian librarian;
 
     @OneToOne
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Student student;
 
     @Column(name = "date_out")

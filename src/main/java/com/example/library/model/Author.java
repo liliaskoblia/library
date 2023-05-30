@@ -9,6 +9,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -24,9 +26,11 @@ public class Author {
     @Column(name = "author_id")
     private Long authorId;
 
+    @NotBlank(message = "First Name must not be blank")
     @Column(name = "first_name", length = 64)
     private String firstName;
 
+    @NotNull(message = "Please provide the Last Name")
     @Column(name = "last_name", length = 64)
     private String lastName;
 

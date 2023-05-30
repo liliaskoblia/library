@@ -12,9 +12,22 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{books}">Books</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Books
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" th:href="@{books}">Books</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{scard}">Issue a Book</a>
+                            </li>
+                        </ul>
+
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
@@ -25,7 +38,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" th:href="@{addauthor}">Add Author</a></li>
+                            <li><a class="dropdown-item" th:href="@{author}">Add Author</a></li>
                         </ul>
                     </li>
                     <!--        <li class="nav-item">-->

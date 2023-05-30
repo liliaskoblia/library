@@ -11,19 +11,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Slf4j
 @Controller
-@RequestMapping("/addauthor")
-@SessionAttributes("author")
+@RequestMapping("/author")
 @RequiredArgsConstructor
 public class AuthorController {
     private final AuthorRepository repo;
 
     @GetMapping
-    public String showAddAuthorForm() {
-        return "addauthor";
+    public String showAuthorForm() {
+        return "author";
     }
 
     @ModelAttribute
@@ -32,9 +30,9 @@ public class AuthorController {
     }
 
     @PostMapping
-    public String processAuthor(@Valid Author author, Errors errors) {
+    public String processAuthor(@Valid @ModelAttribute(value = "author") Author author, Errors errors) {
         if (errors.hasErrors()) {
-            return "addauthor";
+            return "author";
         }
 
         log.info("Processing author: {}", author);
