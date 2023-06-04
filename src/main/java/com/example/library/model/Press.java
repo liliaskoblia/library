@@ -1,10 +1,6 @@
 package com.example.library.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -15,6 +11,7 @@ import java.util.List;
 public class Press {
     @Id
     @Column(name = "press_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pressId;
 
     @Column(name = "name")

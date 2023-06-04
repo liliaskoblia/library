@@ -50,7 +50,7 @@ public class BookController {
 
     private List<Book> filterByFirstLetter(Iterable<Book> books, String firstLetter) {
         return StreamSupport.stream(books.spliterator(), false)
-                .filter(book -> firstLetter.equals(parseFirstLetterOfBookName(book.getName())))
+                .filter(book -> firstLetter.equals(parseFirstLetterOfBookName(book.getBookName())))
                 .collect(Collectors.toList());
     }
 }

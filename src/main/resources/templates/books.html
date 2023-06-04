@@ -14,23 +14,23 @@
             <div th:replace="~{includes/header.html :: header}"></div>
         </div>
     </div>
-    <div class="row mt-2">
-        <div class="col-12">
-            <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">
-                <button type="button" class="btn btn-info">All</button>
-                <button type="button" class="btn btn-danger">Overdue</button>
-                <button type="button" class="btn btn-warning">In Hand</button>
-                <button type="button" class="btn btn-success">Available</button>
-            </div>
-        </div>
-    </div>
+    <!--    <div class="row mt-2">-->
+    <!--        <div class="col-12">-->
+    <!--            <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">-->
+    <!--                <button type="button" class="btn btn-info">All</button>-->
+    <!--                <button type="button" class="btn btn-danger">Overdue</button>-->
+    <!--                <button type="button" class="btn btn-warning">In Hand</button>-->
+    <!--                <button type="button" class="btn btn-success">Available</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <div class="row mt-5">
         <div class="col-12">
             <div th:each="booksByLetter : ${books}">
                 <div th:text="${booksByLetter.letter()}" class="h1"></div>
                 <div th:each="book : ${booksByLetter.books()}" class="row mb-3 text-center">
-                    <div th:text="${book.id}" class="col-1 themed-grid-col"></div>
-                    <div th:text="${book.name}" class="col-2 themed-grid-col"></div>
+                    <div th:text="${book.getBookId}" class="col-1 themed-grid-col"></div>
+                    <div th:text="${book.getBookName}" class="col-2 themed-grid-col"></div>
                     <div th:text="${book.pages}" class="col-1 themed-grid-col"></div>
                     <div th:text="${book.year}" class="col-1 themed-grid-col"></div>
                     <div th:text="${book.category.name}" class="col-2 themed-grid-col"></div>

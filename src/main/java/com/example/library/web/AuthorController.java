@@ -38,6 +38,8 @@ public class AuthorController {
         log.info("Processing author: {}", author);
         repo.save(author);
 
-        return "redirect:/";
+        return "redirect:/authors";
     }
+
+
 }

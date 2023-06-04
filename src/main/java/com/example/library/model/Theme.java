@@ -1,10 +1,6 @@
 package com.example.library.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Set;
@@ -14,6 +10,7 @@ import java.util.Set;
 @Table(name = "themes")
 public class Theme {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "theme_id")
     private Long themeId;
 

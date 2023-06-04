@@ -16,7 +16,8 @@
                 <div class="mb-3">
                     <label for="bookInput" class="form-label">Select a Book</label>
                     <select class="form-select" id="bookInput" th:field="*{bookId}">
-                        <option th:each="book : ${allbooks}" th:value="${book.id}" th:text="${book.name}"></option>
+                        <option th:each="book : ${allbooks}" th:value="${book.getBookId}"
+                                th:text="${book.getBookName}"></option>
                     </select>
                 </div>
                 <div class="mb-3">
