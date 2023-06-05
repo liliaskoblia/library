@@ -18,10 +18,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" th:href="@{books}" th:text="#{books}"></a>
+                                <a class="dropdown-item" th:href="@{/books}" th:text="#{books}"></a>
                             </li>
                             <li>
-                                <a class="dropdown-item" th:href="@{scard}" th:text="#{issueabook}"></a>
+                                <a class="dropdown-item" th:href="@{/scard}" th:text="#{issueabook}"></a>
                             </li>
                         </ul>
 
@@ -29,12 +29,12 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" th:href="@{/}" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false" th:text="#{lecturers}">
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" th:href="@{employee}" th:text="#{addlecturer}"></a>
+                                <a class="dropdown-item" th:href="@{/employee}" th:text="#{addlecturer}"></a>
                             </li>
                         </ul>
 
@@ -46,19 +46,14 @@
                            aria-expanded="false" th:text="#{authors}">
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{authors}" th:text="#{allauthors}"></a></li>
+                            <li><a class="dropdown-item" th:href="@{/authors}" th:text="#{allauthors}"></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" th:href="@{author}" th:text="#{addauthor}"></a></li>
+                            <li><a class="dropdown-item" th:href="@{/author}" th:text="#{addauthor}"></a></li>
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 disabled" type="search" th:placeholder="#{search}"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success disabled" type="submit" th:text="#{search}">Search</button>
-                </form>
             </div>
         </div>
     </nav>

@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -16,30 +15,36 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Controller
-@RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
     private final BookRepository repo;
 
     private final static List<String> ALPHABET = List.of("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
+    @RequestMapping(path = {"/books", "/books/search"})
     @GetMapping
-    public String getAllBooks() {
-        return "books";
-    }
+    public String getAllBooks(Model model, String keyword) {
+        Iterable<Book> allBooks = repo.findAll();
+        if (keyword != null) {
+            allBooks = StreamSupport.stream(allBooks.spliterator(), false)
+                    .filter(book -> book.getBookName().toUpperCase().contains(keyword.toUpperCase()) ||
+                            book.getCategory().getName().toUpperCase().contains(keyword.toUpperCase()) ||
+                            book.getBookAuthors().stream().map(author -> author.getFirstName().concat(author.getLastName())).collect(Collectors.joining(",")).toUpperCase().contains(keyword.toUpperCase()) ||
+                            book.getTheme().getName().toUpperCase().contains(keyword.toUpperCase()) ||
+                            book.getPress().getName().toUpperCase().contains(keyword.toUpperCase()))
+                    .collect(Collectors.toList());
 
-    @ModelAttribute
-    public void setAlphabet(Model model) {
-        model.addAttribute("booksByAlphabet", ALPHABET);
+
+        }
         List<BooksByLetter> booksByLetters = new ArrayList<>();
-        var books = repo.findAll();
         for (var letter : ALPHABET) {
-            var booksByLetter = filterByFirstLetter(books, letter);
+            var booksByLetter = filterByFirstLetter(allBooks, letter);
             if (booksByLetter.isEmpty()) continue;
             booksByLetters.add(new BooksByLetter(letter, booksByLetter));
         }
         model.addAttribute("books", booksByLetters);
 
+        return "books";
     }
 
     private String parseFirstLetterOfBookName(String name) {
