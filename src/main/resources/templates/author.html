@@ -14,7 +14,7 @@
         <div class="col-10">
             <form method="POST" th:object="${author}" th:action="@{/author}">
                 <div class="mb-3">
-                    <label for="firstNameInput" class="form-label">First Name</label>
+                    <label for="firstNameInput" class="form-label" th:text="#{lecturerfirstname}">First Name</label>
                     <input th:field="*{firstName}" th:value="${author.firstName}" type="text" class="form-control"
                            id="firstNameInput" aria-describedby="firstNameHelp" required>
                     <span class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}"
@@ -22,14 +22,14 @@
                     <div id="firstNameHelp" class="form-text">Enter First Name of the Author</div>
                 </div>
                 <div class="mb-3">
-                    <label for="lastNameInput" class="form-label">Last Name</label>
+                    <label for="lastNameInput" class="form-label" th:text="#{lecturersecondname}"></label>
                     <input th:field="*{lastName}" th:value="${author.lastName}" type="text" class="form-control"
                            id="lastNameInput" required>
                     <span class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}"
                           th:errors="*{lastName}"></span>
                     <div id="lastNameHelp" class="form-text">Enter Last Name of the Author</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" th:text="#{savelecturer}"></button>
             </form>
         </div>
         <div class="col-1"></div>

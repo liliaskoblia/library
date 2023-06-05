@@ -14,21 +14,21 @@
         <div class="col-10">
             <form method="POST" th:object="${scard}" th:action="@{/scard}">
                 <div class="mb-3">
-                    <label for="bookInput" class="form-label">Select a Book</label>
+                    <label for="bookInput" class="form-label" th:text="#{selectabook}"></label>
                     <select class="form-select" id="bookInput" th:field="*{bookId}">
                         <option th:each="book : ${allbooks}" th:value="${book.getBookId}"
                                 th:text="${book.getBookName}"></option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="studentInput" class="form-label">Select a Student</label>
+                    <label for="studentInput" class="form-label" th:text="#{selectastudent}"></label>
                     <select class="form-select" id="studentInput" th:field="*{studentId}">
                         <option th:each="student : ${allstudents}" th:value="${student.studentId}"
                                 th:text="${student.firstName} + ' ' + ${student.lastName}"></option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="librarianInput" class="form-label">Select a Librarian</label>
+                    <label for="librarianInput" class="form-label" th:text="#{selectlibrarian}"></label>
                     <select class="form-select" id="librarianInput" th:field="*{librarianId}">
                         <option th:each="librarian : ${librarians}" th:value="${librarian.librarianId}"
                                 th:text="${librarian.firstName} + ' ' + ${librarian.lastName}"></option>

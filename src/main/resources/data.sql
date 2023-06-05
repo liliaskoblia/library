@@ -6,6 +6,30 @@ VALUES ('Love'),
        ('Friendship'),
        ('Humour');
 
+INSERT INTO PUBLIC.libs (librarian_id, first_name, last_name)
+VALUES (1, 'Sigurd', 'Snakeeye'),
+       (2, 'Tihomir', 'Vodolaziv'),
+       (3, 'Yan', 'Kazimir');
+
+INSERT INTO PUBLIC.faculties (faculty_id, faculty_name)
+VALUES (1, 'Mechanics'),
+       (2, 'Physics'),
+       (3, 'Mathematics'),
+       (4, 'Literature');
+
+INSERT INTO PUBLIC."groups" (group_id, group_name, faculty_id)
+VALUES (1, 'first group', 1),
+       (2, 'second group', 2),
+       (3, 'third group', 3),
+       (4, 'fourth group', 4);
+
+INSERT INTO PUBLIC.students (student_id, first_name, last_name, group_id)
+VALUES (1, 'Vasili', 'Tsekov', 1),
+       (2, 'Teon', 'Greyjoy', 2),
+       (3, 'Osvald', 'Barndshtuber', 3),
+       (4, 'Till', 'Lindemann', 4);
+
+
 INSERT INTO PUBLIC.press (name)
 VALUES ('Prentise Hall'),
        ('HarperCollins'),

@@ -1,7 +1,7 @@
 <div th:fragment="header">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Library</a>
+            <a class="navbar-brand" href="#" th:text="#{appname}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -10,33 +10,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/}" th:text="#{home}"></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Books
+                           aria-expanded="false" th:text="#{books}">
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" th:href="@{books}">Books</a>
+                                <a class="dropdown-item" th:href="@{books}" th:text="#{books}"></a>
                             </li>
                             <li>
-                                <a class="dropdown-item" th:href="@{scard}">Issue a Book</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Lecturers
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" th:href="@{employee}">Add Lecturer</a>
+                                <a class="dropdown-item" th:href="@{scard}" th:text="#{issueabook}"></a>
                             </li>
                         </ul>
 
@@ -45,21 +30,34 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Authors
+                           aria-expanded="false" th:text="#{lecturers}">
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{authors}">All Authors</a></li>
+                            <li>
+                                <a class="dropdown-item" th:href="@{employee}" th:text="#{addlecturer}"></a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" th:text="#{authors}">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{authors}" th:text="#{allauthors}"></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" th:href="@{author}">Add Author</a></li>
+                            <li><a class="dropdown-item" th:href="@{author}" th:text="#{addauthor}"></a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 disabled" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success disabled" type="submit">Search</button>
+                    <input class="form-control me-2 disabled" type="search" th:placeholder="#{search}"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success disabled" type="submit" th:text="#{search}">Search</button>
                 </form>
             </div>
         </div>
